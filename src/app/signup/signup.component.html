@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+    
+        <form [formGroup] ="insertFrm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label for="email">Item email</label>
+                <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter email" formControlName="email" >
+                <div *ngIf="insertFrm.controls['email'].hasError('required') && (insertFrm.controls['email'].dirty||insertFrm.controls['email'].touched)">
+                    <small *ngIf="insertFrm.controls['email'].hasError('required')" class="text-danger">email is required.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pass">Item pass</label>
+                <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter pass" formControlName="pass" >
+                <div *ngIf="insertFrm.controls['pass'].hasError('required') && (insertFrm.controls['pass'].dirty||insertFrm.controls['pass'].touched)">
+                    <small *ngIf="insertFrm.controls['pass'].hasError('required')" class="text-danger">pass is required.</small>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="price">Item price</label>
+                <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter price" formControlName="price" >
+                <div *ngIf="insertFrm.controls['price'].hasError('required') && (insertFrm.controls['price'].dirty||insertFrm.controls['price'].touched)">
+                    <small *ngIf="insertFrm.controls['price'].hasError('required')" class="text-danger">id is required.</small>
+                </div>
+            </div> -->
+
+            <input type="submit" class="btn btn-primary" [disabled]="!insertFrm.valid" value="Insert">
+        </form>
+    </div>
+</div>
+</div>
